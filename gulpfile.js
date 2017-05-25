@@ -41,7 +41,6 @@ gulp.task('buildStyles', done => {
 			.pipe($.cssnano()) // Minify
 		.pipe($.sourcemaps.write('.')) // Write sourcemap
 		.pipe(gulp.dest('build')) // Copy to build
-		.pipe(browserSync.stream({ match: 'build/**/*.css' })) // Send updates to BrowserSync
 	done()
 })
 
@@ -67,7 +66,7 @@ gulp.task('reloadBrowserSync', done => {
 gulp.task('watch', done => {
 	gulp.watch('src/hypertext/**/*.html', gulp.series('buildHypertext', 'reloadBrowserSync'))
 	gulp.watch('src/scripts/**/*.js', gulp.series('buildScripts', 'reloadBrowserSync'))
-	gulp.watch('src/styles/**/*.scss', gulp.series('buildStyles'))
+	gulp.watch('src/styles/**/*.scss', gulp.series('buildStyles', 'reloadBrowserSync'))
 	done()
 })
 
