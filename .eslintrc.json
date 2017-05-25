@@ -1,0 +1,26 @@
+{
+	"parser": "babel-eslint",
+	"extends": "standard",
+	"globals": {
+		"_": false,
+		"$": false
+	},
+	"plugins": [
+		"standard",
+		"promise"
+	],
+	"rules": {
+		"comma-dangle": ["error", {
+			"arrays": "never",
+			"objects": "always-multiline",
+			"imports": "always-multiline",
+			"exports": "always-multiline",
+			"functions": "ignore"
+		}],
+		"eol-last": [2, "never"],
+		"indent": [2, "tab"],
+		"no-multiple-empty-lines": 2,
+		"no-tabs": 0,
+		"space-before-function-paren": [2, "always"]
+	}
+}
