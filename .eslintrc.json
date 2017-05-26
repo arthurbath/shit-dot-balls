@@ -3,13 +3,16 @@
 	"extends": "standard",
 	"globals": {
 		"_": false,
-		"$": false
+		"YT": false
 	},
 	"plugins": [
 		"standard",
 		"promise"
 	],
 	"rules": {
+		"brace-style": [2, "stroustrup", {
+			"allowSingleLine": true
+		}],
 		"comma-dangle": ["error", {
 			"arrays": "never",
 			"objects": "always-multiline",
@@ -19,6 +22,7 @@
 		}],
 		"eol-last": [2, "never"],
 		"indent": [2, "tab"],
+		"no-empty": 2,
 		"no-multiple-empty-lines": 2,
 		"no-tabs": 0,
 		"space-before-function-paren": [2, "always"]
