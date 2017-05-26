@@ -1,6 +1,6 @@
 {
   "author": "Arthur Bath",
-  "description": "Bath Boilerplate",
+  "description": "Shit Dot Balls",
   "devDependencies": {
     "babel-eslint": "^7.2.3",
     "babel-preset-es2015": "^6.24.1",
@@ -31,7 +31,7 @@
   },
   "license": "ISC",
   "main": "index.js",
-  "name": "bath-boilerplate",
+  "name": "shit-dot-balls",
   "pre-commit": [
     "beautifySrc"
   ],
