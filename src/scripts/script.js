@@ -12,11 +12,12 @@ function onYouTubeIframeAPIReady () { // eslint-disable-line no-unused-vars
 		width: '400',
 		playerVars: {
 			color: 'white',
-			modestbranding: 1,
-			enablejsapi: 1,
-			showinfo: 0,
 			controls: 2,
+			enablejsapi: 1,
 			iv_load_policy: 3,
+			modestbranding: 1,
+			rel: 0,
+			showinfo: 0,
 		},
 		events: {
 			onReady: event => {
