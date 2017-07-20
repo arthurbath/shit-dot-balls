@@ -5,7 +5,7 @@ let firstScriptTag = document.getElementsByTagName('script')[0]
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag)
 
 let firstLoad = true
-let videoPlayer
+let videoPlayer // eslint-disable-line no-unused-vars
 function onYouTubeIframeAPIReady () { // eslint-disable-line no-unused-vars
 	videoPlayer = new YT.Player('videoPortal', {
 		height: '300',
@@ -16,6 +16,7 @@ function onYouTubeIframeAPIReady () { // eslint-disable-line no-unused-vars
 			enablejsapi: 1,
 			iv_load_policy: 3,
 			modestbranding: 1,
+			playsinline: 0,
 			rel: 0,
 			showinfo: 0,
 		},
