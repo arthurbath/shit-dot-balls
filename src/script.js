@@ -1,13 +1,10 @@
-// Inject YouTube player script
-let tag = document.createElement('script')
-tag.src = 'https://www.youtube.com/iframe_api'
-let firstScriptTag = document.getElementsByTagName('script')[0]
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag)
+import html from './index.html' // eslint-disable-line no-unused-vars
+import css from './style.scss' // eslint-disable-line no-unused-vars
 
 let firstLoad = true
 let videoPlayer // eslint-disable-line no-unused-vars
-function onYouTubeIframeAPIReady () { // eslint-disable-line no-unused-vars
-	videoPlayer = new YT.Player('videoPortal', {
+window.onYouTubeIframeAPIReady = () => {
+	videoPlayer = new window.YT.Player('videoPortal', {
 		height: '300',
 		width: '400',
 		playerVars: {
@@ -29,7 +26,7 @@ function onYouTubeIframeAPIReady () { // eslint-disable-line no-unused-vars
 			},
 			onStateChange: event => {
 				// On playlist initially queued
-				if (firstLoad && event.data === YT.PlayerState.CUED) {
+				if (firstLoad && event.data === window.YT.PlayerState.CUED) {
 					event.target.setVolume(100) // User should control volume from their device
 					event.target.setShuffle(true)
 					event.target.setLoop(true)
@@ -37,7 +34,7 @@ function onYouTubeIframeAPIReady () { // eslint-disable-line no-unused-vars
 				}
 			},
 			onError: event => {
-				console.warn('ERROR PLAYING VIDEO', event)
+				console.warn('Error playing video', event)
 				event.target.nextVideo()
 			},
 		},
