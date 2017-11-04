@@ -1,7 +1,9 @@
 import html from './index.html' // eslint-disable-line no-unused-vars
 import css from './style.scss' // eslint-disable-line no-unused-vars
 
+// Set up YouTube player
 let firstLoad = true
+let youTubeReady = false
 let videoPlayer // eslint-disable-line no-unused-vars
 window.onYouTubeIframeAPIReady = () => {
 	videoPlayer = new window.YT.Player('videoPortal', {
@@ -31,6 +33,7 @@ window.onYouTubeIframeAPIReady = () => {
 					event.target.setShuffle(true)
 					event.target.setLoop(true)
 					event.target.playVideoAt(0) // Play first video in shuffled list
+					youTubeReady = true // Set
 				}
 			},
 			onError: event => {
@@ -40,3 +43,21 @@ window.onYouTubeIframeAPIReady = () => {
 		},
 	})
 }
+
+// DOM ready
+document.addEventListener('DOMContentLoaded', () => {
+	let curtain = document.querySelector('.curtain')
+	let logo = document.querySelector('.curtain__logo')
+
+	// When the logo fades out (final transition), hide the curtain, preventing its edges from reappearing on window resize
+	logo.addEventListener('transitionend', () => {
+		curtain.classList.add('display--none')
+	}, { once: true })
+
+	// Check that YouTube is ready, then dismiss the curtain
+	let checkYouTubeReady = setInterval(() => {
+		if (!youTubeReady) { return }
+		curtain.classList.add('curtain--drawn')
+		clearInterval(checkYouTubeReady)
+	}, 500)
+})

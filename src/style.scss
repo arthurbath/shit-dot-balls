@@ -8,3 +8,108 @@ body,
 	height: 100%;
 	margin: 0;
 }
+
+.curtain {
+
+	&--drawn {
+		pointer-events: none;
+	}
+
+	&__background {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		background-image: linear-gradient(135deg, $razzmatazz, $pizazz);
+		transition: opacity 2s linear;
+		transition-delay: 1s;
+
+		.curtain--drawn & {
+			opacity: 0;
+		}
+	}
+
+	&__top,
+	&__left,
+	&__right {
+		position: fixed;
+		top: 0;
+		background-size: contain;
+
+		@media screen and (orientation: portrait) {
+			display: none;
+		}
+	}
+
+	&__left,
+	&__right {
+		bottom: 0;
+		width: 30vw;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+	&__top {
+		left: 0;
+		right: 0;
+		background-image: url('images/top.png');
+		background-repeat: repeat-x;
+		background-position: center top;
+		height: 23vh;
+		transition: top 2s ease-in;
+
+		.curtain--drawn & {
+			top: -24vh;
+		}
+	}
+
+	&__left {
+		left: 0;
+		background-image: url('images/left.png');
+		background-position: right;
+		transition: left 4s ease-in;
+
+		.curtain--drawn & {
+			left: -50%;
+		}
+	}
+
+	&__right {
+		right: 0;
+		background-image: url('images/right.png');
+		background-position: left;
+		transition: right 4s ease-in;
+
+		.curtain--drawn & {
+			right: -50%;
+		}
+	}
+
+	&__logo {
+		position: fixed;
+		height: 77vh;
+		width: 40vw;
+		right: 0;
+		bottom: 0;
+		left: 30vw; // Side curtain width
+		background-image: url('images/logo.png');
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center center;
+		transition: opacity 1s linear;
+		transition-delay: 2.5s;
+
+		.curtain--drawn & {
+			opacity: 0;
+		}
+
+		@media screen and (orientation: portrait) {
+			height: 100vh;
+			width: 80vw;
+			left: 10vw;
+		}
+	}
+}
+
+.display--none {
+	display: none !important;
+}
