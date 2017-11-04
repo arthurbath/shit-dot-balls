@@ -1,12 +1,13 @@
-import html from './index.html' // eslint-disable-line no-unused-vars
-import css from './style.scss' // eslint-disable-line no-unused-vars
+import './index.html'
+import './style.scss'
+import './favicon.png'
+import './app-icon.png'
 
 // Set up YouTube player
 let firstLoad = true
 let youTubeReady = false
-let videoPlayer // eslint-disable-line no-unused-vars
 window.onYouTubeIframeAPIReady = () => {
-	videoPlayer = new window.YT.Player('videoPortal', {
+	let videoPlayer = new window.YT.Player('videoPortal', { // eslint-disable-line no-unused-vars
 		height: '300',
 		width: '400',
 		playerVars: {
