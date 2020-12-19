@@ -24,7 +24,7 @@ window.onYouTubeIframeAPIReady = () => {
 			onReady: event => {
 				event.target.cuePlaylist({
 					listType: 'playlist',
-					list: 'PLq3AXW8g_v5N1sZ5_LoNYGqjtSCrOs5YY',
+					list: 'PLq3AXW8g_v5N0zWT_SQ_gaqnf7tVwSIFG',
 				})
 			},
 			onStateChange: event => {
